@@ -1,0 +1,490 @@
+<!DOCTYPE html>
+<html lang="pl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eco Invest - Informacje o Firmie</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" />
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            color: #18181b;
+            background-color: white;
+            line-height: 1.6;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background-color: white;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            z-index: 1000;
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 0;
+            height: 150px;
+        }
+
+        .logo {
+            width: 100px;
+            height: auto;
+        }
+
+        nav ul {
+            display: flex;
+            list-style-type: none;
+        }
+
+        nav ul li {
+            margin-left: 2rem;
+        }
+
+        nav a {
+            color: #18181b;
+            text-decoration: none;
+            font-size: 0.875rem;
+            font-weight: 600;
+            transition: color 0.3s ease, background-color 0.3s ease;
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+        }
+
+        nav a:hover {
+            color: #5e17eb;
+            background-color: rgba(94, 23, 235, 0.1);
+        }
+
+        .hamburger {
+            display: none;
+            cursor: pointer;
+            background: none;
+            border: none;
+            font-size: 2rem;
+            z-index: 1001;
+        }
+
+        main {
+            padding-top: 150px;
+        }
+
+        .hero {
+            background-color: #5e17eb;
+            background-size: cover;
+            background-position: center;
+            color: white;
+            text-align: center;
+            padding: 6rem 0;
+            position: relative;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(0, 0, 0, 0.5);
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        h1 {
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+
+        .hero p {
+            font-size: 1.25rem;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .info-section {
+            padding: 4rem 0;
+        }
+
+        .info-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 4rem;
+        }
+
+        .info-item {
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+        }
+
+        .info-item:nth-child(even) {
+            flex-direction: row-reverse;
+        }
+
+        .info-text {
+            flex: 1;
+        }
+
+        .info-image {
+            flex: 1;
+            max-width: 500px;
+        }
+
+        .info-image img {
+            width: 100%;
+            height: auto;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        h2 {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            color: #5e17eb;
+        }
+
+        .info-item p {
+            margin-bottom: 1rem;
+        }
+
+        .tech-section {
+            background-color: #f3f4f6;
+            padding: 4rem 0;
+        }
+
+        .tech-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .tech-item {
+            background-color: white;
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        .tech-icon {
+            font-size: 3rem;
+            color: #5e17eb;
+            margin-bottom: 1rem;
+        }
+
+        footer {
+            background-color: #18181b;
+            color: white;
+            padding: 4rem 0;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+        }
+
+        footer h3 {
+            font-size: 1.25rem;
+            margin-bottom: 1rem;
+        }
+
+        footer ul {
+            list-style-type: none;
+        }
+
+        footer a {
+            color: white;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        footer a:hover {
+            color: #5e17eb;
+        }
+
+        .social-icons {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .social-icons a {
+            font-size: 1.5rem;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 2rem;
+            color: white;
+        }
+
+        .footer-bottom a {
+            color: #5e17eb;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer-bottom a:hover {
+            color: #4c11c2;
+        }
+
+        @media (max-width: 768px) {
+            .header-content {
+                flex-wrap: wrap;
+            }
+
+            .hamburger {
+                display: block;
+            }
+
+            nav {
+                position: fixed;
+                top: 0;
+                right: -100%;
+                width: 80%;
+                max-width: 300px;
+                height: 100vh;
+                background-color: white;
+                box-shadow: -2px 0 5px rgba(0, 0, 0, 0.1);
+                transition: right 0.3s ease-in-out;
+                z-index: 1000;
+            }
+
+            nav.active {
+                right: 0;
+            }
+
+            nav ul {
+                flex-direction: column;
+                padding: 2rem;
+                height: 100%;
+            }
+
+            nav ul li {
+                margin-left: 0;
+                margin-bottom: 1rem;
+            }
+
+            h1 {
+                font-size: 2.5rem;
+            }
+
+            .info-item,
+            .info-item:nth-child(even) {
+                flex-direction: column;
+            }
+
+            .info-image {
+                max-width: 100%;
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <img src="logo%201.png" alt="Eco Invest Logo" class="logo">
+                <button class="hamburger" aria-label="Menu">☰</button>
+                <nav>
+                    <ul>
+                        <li><a href="home%20page1.html">Strona główna</a></li>
+                        <li><a href="info.html">Nasza działalność</a></li>
+                        <li><a href="realizacje.html">Realizacje</a></li>
+                        <li><a href="kontakt.html">Kontakt</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero">
+            <div class="container hero-content">
+                <h1>Eco Invest: Innowacyjne Rozwiązania dla Budownictwa</h1>
+
+            </div>
+        </section>
+
+        <section class="info-section">
+            <div class="container">
+                <div class="info-grid">
+                    <div class="info-item">
+                        <div class="info-text">
+                            <h2>Nasza Specjalizacja</h2>
+                            <p>Eco Invest specjalizuje się w wynajmie silosów do przechowywania materiałów sypkich, głównie cementu. Wspieramy projekty budowlane związane z budową dróg, autostrad oraz dużych inwestycji inżynieryjnych.</p>
+                            <p>Naszym celem jest optymalizacja kosztów i zwiększenie efektywności operacji budowlanych poprzez dostarczanie materiałów dokładnie tam, gdzie są one potrzebne – nawet w trudno dostępnych lokalizacjach.</p>
+                        </div>
+                        <div class="info-image">
+                            <img src="nowe%201.jpg" alt="Silosy mobilne Eco Invest">
+                        </div>
+                    </div>
+                    <div class="info-item">
+                        <div class="info-text">
+                            <h2>Zakres Działalności</h2>
+                            <p>Główny obszar naszej działalności to wynajem i obsługa mobilnych silosów, strategicznie rozmieszczanych w pobliżu placów budowy. Umożliwiamy stałe dostawy cementu oraz innych materiałów budowlanych bez konieczności długiego transportu.</p>
+                            <p>Nasza elastyczna oferta pozwala na korzystanie z cementu nawet w małych ilościach, dozując go precyzyjnie do potrzeb danego projektu. Taka logistyka pozwala firmom budowlanym na redukcję kosztów związanych z przestojami i efektywniejsze zarządzanie materiałami.</p>
+                        </div>
+                        <div class="info-image">
+                            <img src="nowe%202.jpg" alt="Plac budowy z silosami Eco Invest">
+                        </div>
+                    </div>
+                    <div class="info-item">
+                        <div class="info-text">
+                            <h2>Wykorzystanie i Funkcje Silosów</h2>
+                            <p>Nasze silosy nie tylko przechowują cement, ale też pełnią funkcję magazynów lub specjalnych linii do dozowania materiałów. Przykładem takiego zastosowania jest projekt realizowany dla Mostostal Acciona przy budowie tunelu na trasie S19 w miejscowości Babica.</p>
+                            <p>Silosy Eco Invest zostały tam wykorzystane do precyzyjnego dozowania materiałów służących osuszaniu urobku, co znacząco usprawniło proces budowlany.</p>
+                        </div>
+                        <div class="info-image">
+                            <img src="nowe%203.jpg" alt="Silosy Eco Invest w akcji">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="tech-section">
+            <div class="container">
+                <h2>Technologia i Zdalne Zarządzanie</h2>
+                <div class="tech-grid">
+                    <div class="tech-item">
+                        <div class="tech-icon">
+                            <i class="fas fa-laptop-code"></i>
+                        </div>
+                        <h3>Kontrola Online</h3>
+                        <p>Pełna kontrola nad poziomem materiałów w silosach poprzez platformę online.</p>
+                    </div>
+                    <div class="tech-item">
+                        <div class="tech-icon">
+                            <i class="fas fa-mobile-alt"></i>
+                        </div>
+                        <h3>Zdalne Dozowanie</h3>
+                        <p>Możliwość zdalnego dozowania materiałów za pomocą telefonu lub komputera.</p>
+                    </div>
+                    <div class="tech-item">
+                        <div class="tech-icon">
+                            <i class="fas fa-chart-line"></i>
+                        </div>
+                        <h3>Monitoring Zapasów</h3>
+                        <p>Bieżące monitorowanie stanu zapasów i podejmowanie natychmiastowych decyzji dotyczących dostaw.</p>
+                    </div>
+                    <div class="tech-item">
+                        <div class="tech-icon">
+                            <i class="fas fa-cogs"></i>
+                        </div>
+                        <h3>Integracja Systemów</h3>
+                        <p>Możliwość integracji z istniejącymi systemami logistycznymi klientów.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="info-section">
+            <div class="container">
+                <div class="info-item">
+                    <div class="info-text">
+                        <h2>Misja i Wartość Dodana</h2>
+                        <p>Eco Invest działa z myślą o optymalizacji kosztów zarówno po stronie usługobiorców, jak i dostawców. Dzięki wieloletniemu doświadczeniu w branży transportowej oraz posiadaniu rozbudowanej floty cementonaczep, doskonale rozumiemy specyficzne wyzwania związane z logistyką materiałów sypkich.</p>
+                        <p>Nasze działania są skierowane na maksymalizację efektywności i zmniejszenie kosztów operacyjnych dla naszych klientów. Dzięki naszej elastyczności, technologicznemu zaawansowaniu i doświadczeniu w branży transportowej, Eco Invest jest niezawodnym partnerem dla firm budowlanych, które szukają ekonomicznych rozwiązań na placach budowy.</p>
+                    </div>
+                    <div class="info-image">
+                        <img src="nowe%204.jpg" alt="Zespół Eco Invest">
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer id="kontakt">
+        <div class="container">
+            <div class="footer-content">
+                <div>
+                    <h3>Szybkie Linki</h3>
+                    <ul>
+                        <li><a href="info.html">Nasza Działalność</a></li>
+                        <li><a href="realizacje.html">Realizacje</a></li>
+                        <li><a href="kontakt.html">Kontakt</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3>Kontakt</h3>
+                    <p>Eco Invest sp.j.</p>
+                    <p>ul. Sobotka 117</p>
+                    <p>Ożarów 27-530, Polska</p>
+                    <p>Tel: +48 509 367 596</p>
+                    <p>Email: grzegorz@transportwieczorek.pl</p>
+                </div>
+                <div>
+                    <h3>Social Media</h3>
+                    <div class="social-icons">
+                        <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
+                            <i class="fab fa-facebook"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>Strona wykonana przez <a href="https://creativefront.pl/#contact" target="_blank" rel="noopener noreferrer">© 2024 CreativeFront</a></p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Hamburger menu functionality
+        const hamburger = document.querySelector('.hamburger');
+        const nav = document.querySelector('nav');
+        const body = document.body;
+
+        hamburger.addEventListener('click', function() {
+            nav.classList.toggle('active');
+            body.classList.toggle('menu-open');
+        });
+
+        // Close menu when clicking outside
+        document.addEventListener('click', function(event) {
+            const isClickInside = nav.contains(event.target) || hamburger.contains(event.target);
+            if (!isClickInside && nav.classList.contains('active')) {
+                nav.classList.remove('active');
+                body.classList.remove('menu-open');
+            }
+        });
+
+        // Close menu when clicking on a link
+        const navLinks = document.querySelectorAll('nav a');
+        navLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                nav.classList.remove('active');
+                body.classList.remove('menu-open');
+            });
+        });
+    </script>
+</body></html>
