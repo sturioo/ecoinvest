@@ -1,0 +1,638 @@
+<!DOCTYPE html>
+<html lang="pl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Eco Invest - Wynajem silosów mobilnych dla firm budowlanych. Optymalizujemy koszty i zwiększamy efektywność operacji budowlanych.">
+    <title>Eco Invest - Silosy Mobilne dla Budownictwa</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            color: #18181b;
+            background-color: white;
+            line-height: 1.6;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background-color: white;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            z-index: 1000;
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 0;
+            height: 80px;
+        }
+
+        .logo {
+            width: 100px;
+            height: auto;
+        }
+
+        nav {
+            transition: transform 0.3s ease-in-out;
+        }
+
+        nav ul {
+            display: flex;
+            list-style-type: none;
+        }
+
+        nav ul li {
+            margin-left: 2rem;
+        }
+
+        nav a {
+            color: #18181b;
+            text-decoration: none;
+            font-size: 0.875rem;
+            font-weight: 600;
+            transition: color 0.3s ease, background-color 0.3s ease;
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+        }
+
+        nav a:hover {
+            color: #5e17eb;
+            background-color: rgba(94, 23, 235, 0.1);
+        }
+
+        .hamburger {
+            display: none;
+            cursor: pointer;
+            background: none;
+            border: none;
+            font-size: 2rem;
+            z-index: 1001;
+        }
+
+        main {
+            padding-top: 80px;
+        }
+
+        .hero {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            align-items: center;
+            min-height: calc(100vh - 80px);
+            padding: 2rem 0;
+        }
+
+        .hero-content {
+            padding: 2rem;
+        }
+
+        .hero-image {
+            text-align: center;
+        }
+
+        .hero-image img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            line-height: 1.2;
+            margin-bottom: 1rem;
+        }
+
+        h1 span {
+            color: #5e17eb;
+        }
+
+        .hero p {
+            font-size: 1.125rem;
+            margin-bottom: 2rem;
+        }
+
+        .services {
+            padding: 4rem 0;
+        }
+
+        .services-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        .services-image img {
+            width: 100%;
+            height: auto;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .achievements {
+            background-color: #f3f4f6;
+            padding: 4rem 0;
+            text-align: center;
+        }
+
+        .achievements-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .achievement-item h3 {
+            font-size: 2.5rem;
+            color: #5e17eb;
+            margin-bottom: 0.5rem;
+        }
+
+        .benefits {
+            padding: 4rem 0;
+        }
+
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .benefit-item {
+            background-color: #f3f4f6;
+            padding: 2rem;
+            border-radius: 8px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .benefit-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .benefit-item h3 {
+            font-size: 1.25rem;
+            margin-bottom: 1rem;
+        }
+
+        .map-section {
+            padding: 4rem 0;
+            background-color: #f3f4f6;
+        }
+
+        .map-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 2rem;
+            align-items: stretch;
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+        }
+
+        .map-frame {
+            flex: 1;
+            min-width: 300px;
+            height: 450px;
+        }
+
+        .company-info {
+            flex: 1;
+            min-width: 300px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding: 2rem;
+            background-color: #5e17eb;
+            color: white;
+        }
+
+        .company-info h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .company-info p {
+            margin-bottom: 0.5rem;
+        }
+
+        footer {
+            background-color: #18181b;
+            color: white;
+            padding: 4rem 0;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+        }
+
+        footer h3 {
+            font-size: 1.25rem;
+            margin-bottom: 1rem;
+        }
+
+        footer ul {
+            list-style-type: none;
+        }
+
+        footer a {
+            color: white;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        footer a:hover {
+            color: #5e17eb;
+        }
+
+        .social-icons {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .social-icons a {
+            font-size: 1.5rem;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 2rem;
+            color: white;
+        }
+
+        .footer-bottom a {
+            color: #5e17eb;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer-bottom a:hover {
+            color: #4c11c2;
+        }
+
+        .check-projects-btn {
+            display: inline-block;
+            padding: 10px 20px;
+            margin-top: 20px;
+            background-color: #5e17eb;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: all 0.3s ease;
+            font-weight: bold;
+        }
+
+        .check-projects-btn:hover {
+            background-color: #4c11c2;
+            transform: translateY(-3px);
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        @media (max-width: 768px) {
+            .header-content {
+                flex-wrap: wrap;
+            }
+
+            .hamburger {
+                display: block;
+            }
+
+            nav {
+                position: fixed;
+                top: 0;
+                right: -100%;
+                width: 80%;
+                max-width: 300px;
+                height: 100vh;
+                background-color: white;
+                box-shadow: -2px 0 5px rgba(0, 0, 0, 0.1);
+                transition: right 0.3s ease-in-out;
+                z-index: 1000;
+            }
+
+            nav.active {
+                right: 0;
+            }
+
+            nav ul {
+                flex-direction: column;
+                padding: 2rem;
+                height: 100%;
+            }
+
+            nav ul li {
+                margin: 1rem 0;
+            }
+
+            .hero {
+                grid-template-columns: 1fr;
+            }
+
+            .hero-image {
+                order: -1;
+            }
+
+            .services-container,
+            .achievements-grid,
+            .benefits-grid,
+            .footer-content {
+                grid-template-columns: 1fr;
+            }
+
+            .map-frame,
+            .company-info {
+                width: 100%;
+            }
+
+            h1 {
+                font-size: 2rem;
+            }
+
+            .achievement-item h3 {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <img src="logo%201.png" alt="Logo Eco Invest" class="logo">
+                <button class="hamburger" aria-label="Menu">☰</button>
+                <nav>
+                    <ul>
+                        <li><a href="home%20page1.html">Strona główna</a></li>
+                        <li><a href="info.html">Nasza działalność</a></li>
+                        <li><a href="realizacje.html">Realizacje</a></li>
+                        <li><a href="kontakt.html">Kontakt</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section id="home" class="hero">
+            <div class="hero-content">
+                <h1>SILOSY, KTÓRE UMACNIAJĄ <span>TWOJĄ</span> BUDOWLANĄ PRZYSZŁOŚĆ</h1>
+                <p>Nasza specjalność to wynajem silosów mobilnych dostosowanych do potrzeb firm budowlanych. Dzięki strategicznemu rozlokowaniu naszych silosów w trudno dostępnych miejscach zapewniamy stałe dostawy materiałów, minimalizując przestoje i optymalizując koszty dla naszych klientów.</p>
+            </div>
+            <div class="hero-image">
+                <img src="home%201.jpg" alt="Silosy mobilne Eco Invest" width="500" height="300">
+            </div>
+        </section>
+
+        <section id="nasza-dzialalnosc" class="services">
+            <div class="container">
+                <div class="services-container">
+                    <div class="services-image">
+                        <img src="home%202.jpg" alt="Nasze usługi - Silosy mobilne" width="500" height="300">
+                    </div>
+                    <div class="services-content">
+                        <h2>Nasze Usługi - Silosy Mobilne</h2>
+                        <p>Oferujemy kompleksowe rozwiązania w zakresie wynajmu silosów mobilnych, zapewniając naszym klientom:</p>
+                        <ul>
+                            <li>Szybką i sprawną dostawę silosów na plac budowy</li>
+                            <li>Elastyczne okresy wynajmu dostosowane do harmonogramu prac</li>
+                            <li>Pełne wsparcie techniczne i logistyczne</li>
+                            <li>Optymalizację kosztów poprzez efektywne zarządzanie materiałami</li>
+                        </ul>
+                        <a href="#realizacje" class="check-projects-btn">Sprawdź nasze projekty</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="services">
+            <div class="container">
+                <div class="services-container">
+                    <div class="services-content">
+                        <h2>Nasze Usługi - Dostawy Materiałów</h2>
+                        <p>Zapewniamy niezawodne dostawy materiałów budowlanych, oferując naszym klientom:</p>
+                        <ul>
+                            <li>Szeroki asortyment wysokiej jakości materiałów budowlanych</li>
+                            <li>Terminowe dostawy nawet w trudno dostępne lokalizacje</li>
+                            <li>Elastyczne harmonogramy dostaw dopasowane do potrzeb projektu</li>
+                            <li>Profesjonalne doradztwo w zakresie doboru materiałów</li>
+                        </ul>
+                        <a href="#realizacje" class="check-projects-btn">Sprawdź nasze projekty</a>
+                    </div>
+                    <div class="services-image">
+                        <img src="home%203.jpg" alt="Nasze usługi - Dostawy materiałów" width="500" height="300">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="services">
+            <div class="container">
+                <div class="services-container">
+                    <div class="services-image">
+                        <img src="home%204.jpg" alt="Nasze usługi - Wsparcie techniczne" width="500" height="300">
+                    </div>
+                    <div class="services-content">
+                        <h2>Nasze Usługi - Wsparcie Techniczne</h2>
+                        <p>Oferujemy kompleksowe wsparcie techniczne, które obejmuje:</p>
+                        <ul>
+                            <li>Całodobową obsługę techniczną silosów i urządzeń</li>
+                            <li>Szkolenia z obsługi i konserwacji sprzętu dla pracowników klienta</li>
+                            <li>Regularne przeglądy i konserwację zapewniającą ciągłość pracy</li>
+                            <li>Szybką reakcję w przypadku awarii lub nieprzewidzianych sytuacji</li>
+                        </ul>
+                        <a href="#realizacje" class="check-projects-btn">Sprawdź nasze projekty</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="achievements">
+            <div class="container">
+                <h2>Nasze Osiągnięcia</h2>
+                <div class="achievements-grid">
+                    <div class="achievement-item">
+                        <h3 id="counter1">0</h3>
+                        <p>Zadowolonych klientów</p>
+                    </div>
+                    <div class="achievement-item">
+                        <h3 id="counter2">0</h3>
+                        <p>Miast obsługiwanych</p>
+                    </div>
+                    <div class="achievement-item">
+                        <h3 id="counter3">0</h3>
+                        <p>Silosów w ofercie</p>
+                    </div>
+                    <div class="achievement-item">
+                        <h3 id="counter4">0</h3>
+                        <p>Ukończonych projektów</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="realizacje" class="benefits">
+            <div class="container">
+                <h2>Dlaczego Warto Wybrać Nasze Usługi</h2>
+                <div class="benefits-grid">
+                    <div class="benefit-item">
+                        <h3>Oszczędność Czasu</h3>
+                        <p>Nasze silosy mobilne minimalizują przestoje, zapewniając ciągłość dostaw materiałów.</p>
+                    </div>
+                    <div class="benefit-item">
+                        <h3>Redukcja Kosztów</h3>
+                        <p>Optymalizujemy zużycie materiałów, co przekłada się na znaczne oszczędności dla naszych klientów.</p>
+                    </div>
+                    <div class="benefit-item">
+                        <h3>Elastyczność</h3>
+                        <p>Dostosowujemy się do indywidualnych potrzeb każdego projektu budowlanego.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="map-section">
+            <div class="container">
+                <div class="map-container">
+                    <div class="map-frame">
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2521.8904185314545!2d21.67144821208768!3d50.79613937154206!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4722b056aec28bcd%3A0x4d743c923c7766a!2sSob%C3%B3tka%20117%2C%2027-530%20Sob%C3%B3tka!5e0!3m2!1spl!2spl!4v1731008208609!5m2!1spl!2spl" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                    </div>
+                    <div class="company-info">
+                        <h3>Eco Invest sp.j.</h3>
+                        <p><i class="fas fa-map-marker-alt"></i> ul. Sobotka 117</p>
+                        <p><i class="fas fa-city"></i> Ożarów 27-530, Polska</p>
+                        <p><i class="fas fa-phone"></i> Tel: +48 509 367 596</p>
+                        <p><i class="fas fa-envelope"></i> Email: grzegorz@transportwieczorek.pl</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer id="kontakt">
+        <div class="container">
+            <div class="footer-content">
+                <div>
+                    <h3>Szybkie Linki</h3>
+                    <ul>
+                        <li><a href="#nasza-dzialalnosc">Nasza Działalność</a></li>
+                        <li><a href="#realizacje">Realizacje</a></li>
+                        <li><a href="#kontakt">Kontakt</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3>Social Media</h3>
+                    <div class="social-icons">
+                        <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" aria-label="Facebook Eco Invest">
+                            <i class="fab fa-facebook"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>Strona wykonana przez <a href="https://creativefront.pl/#contact" target="_blank" rel="noopener noreferrer">© 2024 CreativeFront</a></p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Hamburger menu functionality
+        const hamburger = document.querySelector('.hamburger');
+        const nav = document.querySelector('nav');
+        const body = document.body;
+
+        hamburger.addEventListener('click', function() {
+            nav.classList.toggle('active');
+            body.classList.toggle('menu-open');
+        });
+
+        // Close menu when clicking outside
+        document.addEventListener('click', function(event) {
+            const isClickInside = nav.contains(event.target) || hamburger.contains(event.target);
+            if (!isClickInside && nav.classList.contains('active')) {
+                nav.classList.remove('active');
+                body.classList.remove('menu-open');
+            }
+        });
+
+        // Close menu when clicking on a link
+        const navLinks = document.querySelectorAll('nav a');
+        navLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                nav.classList.remove('active');
+                body.classList.remove('menu-open');
+            });
+        });
+
+        // Counter animation
+        function animateCounter(id, start, end, duration) {
+            let startTimestamp = null;
+            const step = (timestamp) => {
+                if (!startTimestamp) startTimestamp = timestamp;
+                const progress = Math.min((timestamp - startTimestamp) / duration, 1);
+                const value = Math.floor(progress * (end - start) + start);
+                document.getElementById(id).textContent = value;
+                if (progress < 1) {
+                    window.requestAnimationFrame(step);
+                }
+            };
+            window.requestAnimationFrame(step);
+        }
+
+        // Check if an element is in the viewport
+        function isElementInViewport(el) {
+            const rect = el.getBoundingClientRect();
+            return (
+                rect.top >= 0 &&
+                rect.left >= 0 &&
+                rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
+                rect.right <= (window.innerWidth || document.documentElement.clientWidth)
+            );
+        }
+
+        // Handle scroll event for counter animation
+        function handleScroll() {
+            const achievementsSection = document.querySelector('.achievements');
+            if (isElementInViewport(achievementsSection) && !achievementsSection.classList.contains('counted')) {
+                achievementsSection.classList.add('counted');
+                animateCounter('counter1', 0, 100, 2000);
+                animateCounter('counter2', 0, 50, 2000);
+                animateCounter('counter3', 0, 75, 2000);
+                animateCounter('counter4', 0, 200, 2000);
+                // Remove the scroll event listener after counting
+                window.removeEventListener('scroll', handleScroll);
+            }
+        }
+
+        // Add scroll event listener
+        window.addEventListener('scroll', handleScroll);
+
+        // Initial check for counter animation
+        handleScroll();
+    </script>
+</body></html>
